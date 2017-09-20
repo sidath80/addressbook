@@ -71,10 +71,10 @@ public class Contact {
     	String info = "";
     	
         JSONObject jsonInfo = new JSONObject();
-        jsonInfo.put("name",this.name);
+        jsonInfo.put("contactname",this.name);
         
         JSONObject companyObj = new JSONObject();
-        companyObj.put("name", this.addressbook.getName());
+        companyObj.put("addressbookname", this.addressbook.getName());
         jsonInfo.put("addressbook", companyObj);
         
         JSONArray phoneNumbers = new JSONArray();

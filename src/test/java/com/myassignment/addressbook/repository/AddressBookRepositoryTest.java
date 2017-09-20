@@ -2,6 +2,7 @@ package com.myassignment.addressbook.repository;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.HashSet;
 import java.util.List;
@@ -27,9 +28,6 @@ public class AddressBookRepositoryTest {
 	@Autowired
 	private ContactRepository contactRepository;
 
-	@Autowired
-	private PhoneNumberRepository phoneNumberRepository;
-	
 	@Test
 	public void contextLoads()
 	{
@@ -55,7 +53,8 @@ public class AddressBookRepositoryTest {
 				add(testContact);
 			}
 		});
-		addressBookRepository.save(testAddressBook);
+		AddressBook testAddressBookNew=addressBookRepository.save(testAddressBook);
+		assertEquals(testAddressBook.getName(), testAddressBookNew.getName());
 	}
 	
 	@Test
@@ -67,7 +66,6 @@ public class AddressBookRepositoryTest {
 		   contact=contacts.get(0);
 		   contactRepository.delete(contact);
 		}
-		assertEquals("Sidath", contact.getName());
 	}
 	
 	@Test
@@ -75,11 +73,13 @@ public class AddressBookRepositoryTest {
 		
 		List<AddressBook> addressBooks=addressBookRepository.findByName("Personal");
 		AddressBook addressBook=null;
+		Set<Contact>  contacts=null;
 		if(addressBooks != null && addressBooks.size()>0){
 		   addressBook=addressBooks.get(0);
-		   Set<Contact>  contacts=addressBook.getContacts();
+		   contacts=addressBook.getContacts();
 		   contacts.forEach(System.out::println);
 		}
+		assertNotNull("printAllContactsInAddressBook failed", contacts);
 	}
 	
 	@Test
@@ -116,18 +116,14 @@ public class AddressBookRepositoryTest {
 				add(testContact2);
 			}
 		});
-		
-		
-		addressBookRepository.save(testAddressBook);
-		addressBookRepository.save(testAddressBook2);
-		
+		AddressBook testAddressBookNew =addressBookRepository.save(testAddressBook);
+		AddressBook testAddressBook2New =addressBookRepository.save(testAddressBook2);
+		assertEquals(testAddressBook.getName(), testAddressBookNew.getName());
+		assertEquals(testAddressBook2.getName(), testAddressBook2New.getName());
 	}
 	
 	@Test
 	public void printUniqueContacts() {
-		
-		
-
 		
 	}
 }

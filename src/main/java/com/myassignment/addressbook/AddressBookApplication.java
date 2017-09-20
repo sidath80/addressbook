@@ -36,7 +36,7 @@ public class AddressBookApplication implements CommandLineRunner{
     public void run(String... arg0) throws Exception {
     	clearData();
     	saveData();
-    	showData();
+    	//showData();
     }
     
     @Transactional
@@ -103,7 +103,6 @@ public class AddressBookApplication implements CommandLineRunner{
             add(dahamsa);
         }});
         
-        System.out.println("$$$$$$$$$$$$$$$$$S"+personal.toString());
         addressbookRepository.save(personal);
         addressbookRepository.save(official);
     }

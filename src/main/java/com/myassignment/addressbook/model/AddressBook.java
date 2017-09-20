@@ -53,7 +53,7 @@ public class AddressBook {
     public String toString(){
     	String info = "";
         JSONObject jsonInfo = new JSONObject();
-        jsonInfo.put("name",this.name);
+        jsonInfo.put("addressbookname",this.name);
         
         JSONArray contactArray = new JSONArray();
         if(this.contacts != null){
@@ -67,7 +67,7 @@ public class AddressBook {
                     phoneArray.put(subJson2);
                 });
                 subJson.put("phonenumbers",phoneArray);
-                subJson.put("name", contact.getName());
+                subJson.put("contactname", contact.getName());
                 contactArray.put(subJson);
             });
         }
