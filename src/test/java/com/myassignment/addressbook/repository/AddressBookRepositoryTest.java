@@ -84,7 +84,42 @@ public class AddressBookRepositoryTest {
 	
 	@Test
 	public void addMultipleAddressBook() {
-
+		
+		AddressBook testAddressBook = new AddressBook("TestAddressBook");
+		Contact testContact = new Contact("TestContact", testAddressBook);
+		PhoneNumber num1 = new PhoneNumber(424688702, testContact);
+		PhoneNumber num2 = new PhoneNumber(424688703, testContact);
+		testContact.setPhoneNumbers(new HashSet<PhoneNumber>() {
+			{
+				add(num1);
+				add(num2);
+			}
+		});
+		testAddressBook.setContacts(new HashSet<Contact>() {
+			{
+				add(testContact);
+			}
+		});
+		
+		AddressBook testAddressBook2 = new AddressBook("TestAddressBook2");
+		Contact testContact2 = new Contact("TestContact2", testAddressBook2);
+		PhoneNumber num12 = new PhoneNumber(246887022, testContact2);
+		PhoneNumber num22 = new PhoneNumber(246887032, testContact2);
+		testContact2.setPhoneNumbers(new HashSet<PhoneNumber>() {
+			{
+				add(num12);
+				add(num22);
+			}
+		});
+		testAddressBook2.setContacts(new HashSet<Contact>() {
+			{
+				add(testContact2);
+			}
+		});
+		
+		
+		addressBookRepository.save(testAddressBook);
+		addressBookRepository.save(testAddressBook2);
 		
 	}
 	
