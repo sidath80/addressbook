@@ -1,6 +1,11 @@
 package com.myassignment.addressbook.repository;
 
+
+import static org.junit.Assert.assertEquals;
+
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -55,14 +60,26 @@ public class AddressBookRepositoryTest {
 	
 	@Test
 	public void removeContact() {
-
 		
+		List<Contact> contacts=contactRepository.findByName("Sidath");
+		Contact contact=null;
+		if(contacts != null && contacts.size()>0){
+		   contact=contacts.get(0);
+		   contactRepository.delete(contact);
+		}
+		assertEquals("Sidath", contact.getName());
 	}
 	
 	@Test
-	public void printContactInAddressBook() {
-
+	public void printAllContactsInAddressBook() {
 		
+		List<AddressBook> addressBooks=addressBookRepository.findByName("Personal");
+		AddressBook addressBook=null;
+		if(addressBooks != null && addressBooks.size()>0){
+		   addressBook=addressBooks.get(0);
+		   Set<Contact>  contacts=addressBook.getContacts();
+		   contacts.forEach(System.out::println);
+		}
 	}
 	
 	@Test
