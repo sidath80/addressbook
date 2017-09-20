@@ -7,7 +7,7 @@ import static org.junit.Assert.assertNotNull;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +21,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = AddressBookApplication.class)
 public class AddressBookRepositoryTest {
+	
+	private static final Logger logger = Logger.getLogger(AddressBookRepositoryTest.class);
 
 	@Autowired
 	private AddressBookRepository addressBookRepository;
@@ -37,6 +39,8 @@ public class AddressBookRepositoryTest {
 
 	@Test
 	public void addContacts() {
+		
+		logger.info("$$$$$$$$$$$$$$$$$$$ Test 1 addContacts$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 
 		AddressBook testAddressBook = new AddressBook("TestAddressBook");
 		Contact testContact = new Contact("TestContact", testAddressBook);
@@ -59,7 +63,7 @@ public class AddressBookRepositoryTest {
 	
 	@Test
 	public void removeContact() {
-		
+		logger.info("$$$$$$$$$$$$$$$$$$$ Test 2 removeContact$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		List<Contact> contacts=contactRepository.findByName("Sidath");
 		Contact contact=null;
 		if(contacts != null && contacts.size()>0){
@@ -70,7 +74,7 @@ public class AddressBookRepositoryTest {
 	
 	@Test
 	public void printAllContactsInAddressBook() {
-		
+		logger.info("$$$$$$$$$$$$$$$$$$ Test 3 printAllContactsInAddressBook$$$$$$$$$$$$$$$$$$");
 		List<AddressBook> addressBooks=addressBookRepository.findByName("Personal");
 		AddressBook addressBook=null;
 		Set<Contact>  contacts=null;
@@ -84,7 +88,7 @@ public class AddressBookRepositoryTest {
 	
 	@Test
 	public void addMultipleAddressBook() {
-		
+		logger.info("$$$$$$$$$$$$$$$$$$ Test 4 addMultipleAddressBook$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		AddressBook testAddressBook = new AddressBook("TestAddressBook");
 		Contact testContact = new Contact("TestContact", testAddressBook);
 		PhoneNumber num1 = new PhoneNumber(424688702, testContact);
@@ -124,7 +128,7 @@ public class AddressBookRepositoryTest {
 	
 	@Test
 	public void printUniqueContacts() {
-		
+		logger.info("$$$$$$$$$$$$$$$$$$$$$$$$ Test 5 printUniqueContacts$$$$$$$$$$$$$$$$$$$$$$$");
 		List<Contact> contacts=contactRepository.findAll();
 		if(contacts != null && contacts.size()>0){
 		   contacts.forEach(System.out::println);

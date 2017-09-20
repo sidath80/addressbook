@@ -1,7 +1,6 @@
 package com.myassignment.addressbook.model;
 
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
