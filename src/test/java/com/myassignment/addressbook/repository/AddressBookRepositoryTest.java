@@ -125,6 +125,11 @@ public class AddressBookRepositoryTest {
 	@Test
 	public void printUniqueContacts() {
 		
+		List<Contact> contacts=contactRepository.findAll();
+		if(contacts != null && contacts.size()>0){
+		   contacts.forEach(System.out::println);
+		}
+		
 	}
 }
 
