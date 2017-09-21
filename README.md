@@ -1,7 +1,7 @@
                                       README
 							             ======
 							
-				Pay Slip Calculation Details (salary-payslip) API 0.0.1 release
+				              AddressBook API 0.0.1 release
 	    		-------------------------------------------------------------
 	    		
 Welcome to the addressbookapp API 0.0.1 release!  This release includes versions of the 
@@ -40,7 +40,9 @@ implementation with JDK 1.8
  Future		
 ==========================================================================================
 			
+		Plan to develop REST API with following apis,
 		
+		1. 
 
 		
 		
