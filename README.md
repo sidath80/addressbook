@@ -18,7 +18,7 @@ implementation with JDK 1.8
 			
 	    1. To run the test, type "mvn test"
 	       
-	       AddressBookRepositoryTest.java : Which will run the folllowing test cases accordinly,
+	       AddressBookRepositoryTest.java : Which will run the following test cases accordingly,
 	       
 	       addContacts : Add a contact to a given addressbook
 	       
