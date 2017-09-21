@@ -39,9 +39,26 @@ implementation with JDK 1.8
   
  Future		
 ==========================================================================================
-		
+		In future, following REST APIS will be develop with using Springboot/Swagger/mockmvc/
 			
-		
+		Title : Create Contact.
+       URL : /createcontact
+       Method : POST 
+       URL Params : NO
+       Data Params : JSON
+       Response Codes: Success (201 OK), Bad Request (400), Unauthorized (401)
+       
+       Title : Remove Contact.
+       URL : /removecontact/{id}
+       Method : DELETE  
+       URL Params : Required: id=[integer]
+       Data Params : NO
+       Response Codes: Success (201 OK), Bad Request (400), Unauthorized (401)
 
-		
+		Title : Print Contacts in a given addressbook.
+       URL : /addressbook/{id}/printcontacts/
+       Method : GET  
+       URL Params : Required: id=[integer]
+       Data Params : NO
+       Response Codes: Success (200 OK), Bad Request (400), Unauthorized (401)
 		
