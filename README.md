@@ -39,12 +39,6 @@ implementation with JDK 1.8
   
  Future		
 ==========================================================================================
-			
-		Plan to develop REST API with following apis,
-		
-		1. 
-
-		
 		
 			
 		
